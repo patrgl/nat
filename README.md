@@ -74,3 +74,13 @@ Header:
 | `Authorization` | `string` | **Required**.  |
 
 Note: Files not found will be ingored, and their names will be added to the response header notifiying you they were not found.
+
+## Deployment
+
+To deploy this project run
+
+```bash
+  go run main.go
+```
+
+Remeber to set a the "token" env variable to be a proper randomized token before using this outside of testing, and removing os.Setenv("thisisatoken") in main.go, once you do. "thisisatoken" is the default token set by this line.
