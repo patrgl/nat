@@ -72,3 +72,5 @@ Header:
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `Authorization` | `string` | **Required**.  |
+
+Note: Files not found will be ingored, and their names will be added to the response header notifiying you they were not found.
