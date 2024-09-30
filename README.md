@@ -5,6 +5,10 @@ Fast & simple api-based file storage with token authentication made in Go.
 
 ## API Reference
 
+### Authorization token example
+
+{Authorization : Bearer `Your token`}
+
 ### Upload a file
 
 ```http
