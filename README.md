@@ -1,7 +1,9 @@
 
 # nat
 
-Fast & simple api-based file storage with token authentication made in Go.
+Fast & simple concurrent api-based file storage with token authentication made in Go.
+
+Multiple actions within one request, say you are attempting to upload or download multiple files, will be done concurrently in order to speed up operations.
 
 ## API Reference
 
