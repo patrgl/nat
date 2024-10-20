@@ -107,7 +107,6 @@ func MultiDownload(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Reset the file pointer to the beginning
 	file.Seek(0, 0)
 
 	w.Header().Set("Content-Disposition", "attachment; filename="+zipName)

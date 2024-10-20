@@ -18,6 +18,7 @@ func main() {
 	mux.HandleFunc("GET /api/multi-download", files.MultiDownload)
 	mux.HandleFunc("DELETE /api/delete/{filename}", files.Delete)
 	mux.HandleFunc("DELETE /api/multi-delete", files.MultiDelete)
+	mux.HandleFunc("PUT /api/multi-upload", files.MultiUpload)
 
 	fmt.Println("Serving on localhost:8080")
 	if err := http.ListenAndServe("localhost:8080", mux); err != nil {
