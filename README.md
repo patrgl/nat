@@ -25,6 +25,24 @@ Body:
 | :-------- | :------- | :-------------------------------- |
 | `file`      | `file` | **Required**. File to be uploaded |
 
+### Upload multiple files
+
+```http
+  PUT /api/multi-upload
+```
+Header:
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `Authorization` | `string` | **Required**.  |
+
+Body:
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `file`      | `file` | **Required**. First file |
+| `file`      | `file` | **Required**. Second file |
+| `file`      | `file` | **Required**. ... file |
+
 ### Download one file
 
 ```http
