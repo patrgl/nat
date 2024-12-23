@@ -1,6 +1,7 @@
 package files
 
 import (
+	"fmt"
 	"io"
 	"net/http"
 	"os"
@@ -30,7 +31,13 @@ func Upload(w http.ResponseWriter, r *http.Request) {
 	}
 	defer file.Close()
 
-	dst, err := os.Create(handler.Filename)
+	fileNameToUse := handler.Filename
+	_, err = os.Stat(handler.Filename)
+	if err == nil {
+		fileNameToUse = fmt.Sprintf("%s (1)", handler.Filename)
+	}
+
+	dst, err := os.Create(fileNameToUse)
 	if err != nil {
 		http.Error(w, "Could not create file", http.StatusInternalServerError)
 		return

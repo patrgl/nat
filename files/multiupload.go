@@ -1,6 +1,7 @@
 package files
 
 import (
+	"fmt"
 	"io"
 	"mime/multipart"
 	"net/http"
@@ -23,7 +24,13 @@ func WriteFile(wg *sync.WaitGroup, filesNotWriten *[]string, filesNotWritenMutex
 	}
 	defer file.Close()
 
-	dst, err := os.Create(handler.Filename)
+	fileNameToUse := handler.Filename
+	_, err = os.Stat(handler.Filename)
+	if err == nil {
+		fileNameToUse = fmt.Sprintf("%s (1)", handler.Filename)
+	}
+
+	dst, err := os.Create(fileNameToUse)
 	if err != nil {
 		filesNotWritenMutex.Lock()
 		*filesNotWriten = append(*filesNotWriten, handler.Filename)
